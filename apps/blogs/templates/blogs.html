@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+{% load staticfiles %}
+  <style type="text/css">
+  pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        text-align: center;
+  }
+  </style>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="然小狼@Ranxiaolang个人主页">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Ziran Gong">
+    <link rel="icon" href="{% static "favicon.ico" %}">
+
+    <title>然小狼</title>
+
+    <!--  core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+
+  <body>
+
+     <header>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href=" {% url '主页' %}">
+            <img src="{% static "logo0.png" %}" style="height: 3.8rem" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+          <div class="collapse navbar-collapse " id="navbarNavDropdown">
+            <ul class="navbar-nav justify-content-end container-fluid p-0 mt-2 mt-md-0">
+                <li class="nav-item text-right">
+                  <a class="nav-link" href="{% url '主页' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="d-block d-md-none border-top border-top-1"></li>
+                <li class="nav-item dropdown text-right">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Article
+                </a>
+                <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href=#>ROG</a>
+                </div>
+                </li>
+
+                <li class="d-block d-md-none border-top border-top-1"></li>
+                <li class="nav-item dropdown text-right">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Resource
+                </a>
+                <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{% static 'python_algorithm/python_algorithm.html' %}">Python-Algorithm</a>
+                  <a class="dropdown-item" href="{% static 'leetcode_python.pdf' %}">Leetcode-Python</a>
+                  <a class="dropdown-item" href="{% url 'baidu_cloud' %}">Baidu-Cloud</a>
+                  <a class="dropdown-item" href="{% url 'game_snake' %}">Snake</a>
+                  <a class="dropdown-item"href="{% url 'game_2048' %}">2048</a>
+                </div>
+                </li>
+
+                <li class="d-block d-md-none border-top border-top-1"></li>
+                <li class="nav-item dropdown text-right">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tools
+                    </a>
+                <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Software</a>
+                    <a class="dropdown-item" href="#">Document</a>
+                    <a class="dropdown-item" href="{% url 'rasp' %}">IOT</a>
+                </div>
+                </li>
+
+                <li class="d-block d-md-none border-top border-top-1"></li>
+                <li class="nav-item text-right">
+                    <a class="nav-link" href="https://sites.google.com/view/ziran/about?authuser=0">About&nbsp;</a>
+                </li>
+
+                <li class="nav-item text-right">
+                    {% if user.is_authenticated %}
+                    <a class="btn btn-outline-primary" href="JavaScript:{document.getElementById('退出').submit()}">Logout</a>
+                    <form id= '退出' method="POST" action='{% url 'LogoutPage' %}' align='center'>
+                    {% csrf_token %}
+                    <input type="hidden">
+                    </form>
+                    {% else %}
+                    <a class="btn btn-outline-primary" href="{% url 'LoginPage' %}">Login</a>&nbsp;
+                    <a class="btn btn-outline-primary" href="{% url 'SignupPage' %}">Sign up</a>
+                    {% endif %}
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center" style="background-image:url({% static "dragon.png" %}); background-size:cover;">
+         <div class="container" style="height:100%; width:100%;" >
+          <h1 class="jumbotron-heading">然小狼的博客</h1>
+          <p class="lead text-dark">回到最初的梦想<br>Back to the original dream</p>
+          <p>
+            <a href="{% url '主页' %}" class="btn btn-primary my-2">Back home</a>
+            <a href="https://sites.google.com/view/ziran/" class="btn btn-danger">项目 Projects</a>
+            <a href="https://weibo.com/gzryoulang" class="btn btn-secondary">微博 Weibo</a>
+            <a href="http://www.ranxiaolang.cn:8000" class="btn btn-light">云盘 Cloud</a>
+          </p>
+        </div>
+      </section>
+
+        <div class="container text-center justify-content-between">
+        <p align="center" class="fa-align-justify ">
+          <iframe width=85% height="450rem" src="https://www.youtube.com/embed/qDXFGchF55o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </p>
+        </div>
+
+        <div class="container text-center justify-content-between">
+        {#    <h1>博客</h1> #}
+        {% for blogs in blogss.all  %}
+        <h4><a class="text-center" href="{{ blogs.id }}">{{ blogs.title }}</a></h4>
+        {{ blogs.date }}
+        <br>
+        <img src="{{ blogs.image.url }}" width="30%" height="30%">
+        <br>
+        <pre clstyle="width:500px;">{{ blogs.short_text }}</pre>
+        <br>
+        {% endfor %}
+        </div>
+
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+
+        <p align="center"> ©2018&nbsp;&nbsp;然小狼&nbsp;&nbsp;Ranxiaolang </p>
+        <p align="center"> <a align="center" class="text-muted" href="http://www.miitbeian.gov.cn/"> All Rights Reserved.&nbsp;&nbsp;京ICP备17049234号&nbsp; </a>
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ?
+        " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1274760583'%3E%3C/span%3E%3Cscript " +
+        "src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1274760583%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1275034851'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol +
+           "s22.cnzz.com/z_stat.php%3Fid%3D1275034851%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        </p>
+      </div>
+    </footer>
+
+<!--  core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+

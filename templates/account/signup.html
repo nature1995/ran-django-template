@@ -1,0 +1,38 @@
+{#{% extends "account/base.html" %}#}
+{% extends "theme.html" %}
+
+{% load staticfiles %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<h1 class="text-center">{% trans "Sign Up" %}</h1>
+
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+{% csrf_token %}
+ <div class="container-fluid col-md-3" align="center">
+    <img class="mb-4 " src="{% static 'lego.svg' %}" alt="" width="72" height="72">
+ </div>
+<div class="container-fluid col-md-3">
+{% include 'account/snippets/bs4_form.html' with form=form %}
+
+{% if redirect_field_value %}
+<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+{% endif %}
+<div class="checkbox mb-3">
+<label><input type="checkbox" value="remember-me"> Remember me</label>
+</div>
+</div>
+
+<p class="text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<div class="container-fluid col-md-3">
+<div class="form-group">
+<button type="submit" class="btn btn-lg btn-primary btn-block">{% trans "Sign Up" %}</button>
+</div>
+</div>
+
+</form>
+<br>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "theme.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<meta http-equiv="refresh" content="2">
+<style>
+#map-canvas {
+    width: 480px;
+    height: 360px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+
+<!--Put your Google Map API key below-->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR KEY"></script>
+<script>
+function initialize() {
+  var mapCanvas = document.getElementById('map-canvas');
+  var mapOptions = {
+    center: new google.maps.LatLng({{lat}}, {{lon}}),
+    zoom: 16,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(mapCanvas, mapOptions)
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<div class="container-fluid text-center justify-content-between">
+    <center><h1>Intelligent Facial Recognition System</h1></center>
+    <center><h3>Stevens Institute of Technology--Ziran Gong</h3></center>
+    <center><h4>{{dtstate}}</h4></center>
+    <section class="text-center">
+        <div class="container" >
+            <p>
+                <a href="{% url '主页' %}" class="btn btn-dark my-2">Back home</a>
+                <a href="{% url 'blogs' %}" class="btn btn-primary">博客 Blog</a>
+                <a href="https://sites.google.com/view/ziran/" class="btn btn-danger">项目 Projects</a>
+                <a href="https://weibo.com/gzryoulang" class="btn btn-warning">微博 Weibo</a>
+                <a href="http://www.ranxiaolang.com:8000" class="btn btn-info">云盘 Cloud</a>
+            </p>
+        </div>
+    </section>
+    <br>
+    <div class="row text-center" >
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2"><h4>Temperature</h4>
+                            <h4>{{tmpstate|floatformat:1}}&deg;C</h4></div>
+        <div class="col-sm-2"><h4>Humidity</h4>
+                            <h4>{{hmdstate|floatformat:1}}%</h4></div>
+
+        <div class="col-sm-2">
+        <h3>Switch</h3>
+        <form action="" method="post">{% csrf_token %}
+        <input type="submit" class="btn btn-primary" name="on" value="on" />
+        <input type="submit" class="btn btn-primary" name="off" value="off" />
+        </form></div>
+        <br>
+         <div class="col-sm-2"></div>
+         </div>
+
+{#            <div class="col-sm-2">#}
+{#            <h3>State</h3>#}
+{#            <form action="" method="post">{% csrf_token %}#}
+{#            <input type="submit" class="btn btn-primary" name="Auto" value="auto" />#}
+{#            <input type="submit" class="btn btn-primary" name="manual" value="manual" />#}
+{#            </form></div>#}
+{#            <div class="col-sm-1"></div>#}
+{#             </div>#}
+
+    <div class="row text-center" >
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2"><h4>Room</h4>
+        {% if roomstate == 'no' %}
+        <img src="{% static "g.png" %}">
+        {% else %}
+        <img src="{% static "r.png" %}">
+        {% endif %}</div>
+        <div class="col-sm-2"><h4>Door</h4>
+        {% if doorstate == 'closed' %}
+        <img src="{% static "g.png" %}">
+        {% else %}
+        <img src="{% static "r.png" %}">
+        {% endif %}</div>
+        <div class="col-sm-2"><h4>Object Detected: {{occupiedCount}}</h4>
+        {% if currentstate == 'on' %}
+        <img src="{% static "g.png" %}">
+        {% else %}
+        <img src="{% static "r.png" %}">
+        {% endif %}</div>
+
+                <div class="col-sm-2">
+        <h3>State</h3>
+            {% if currentmode == 'match' %}
+            <img src="{% static "g.png" %}">
+            {% else %}
+            <img src="{% static "r.png" %}">
+            {% endif %}</div>
+            <div class="col-sm-1"></div>
+    </div>
+
+{#    <!-- Google Map -->#}
+{#        <br>#}
+{#        <div class="col-lg-pull-0x`" style="height:360px ">#}
+{#        <div id="map-canvas"></div>#}
+{#        </div>#}
+{#        <br>#}
+
+    <div class="row text-center" >
+          {% if currentstate == 'on' %}
+         <div class="col-sm-4"></div>
+{#                <embed src="http://localhost:8080/?action=stream" type="audio/mpeg" width="775" height="485" >#}
+            <embed src="http://192.168.1.73:8080/?action=stream" type="audio/mpeg" width="775" height="485" >
+         <div class="col-sm-4"></div>
+         {% endif %}
+    </div>
+
+</div>
+<br>
+
+{% endblock content %}

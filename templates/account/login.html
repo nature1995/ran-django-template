@@ -1,0 +1,53 @@
+{% extends "theme.html" %}
+
+{% load staticfiles %}
+{% load i18n %}
+{% load account socialaccount %}
+{% load widget_tweaks %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<h1 align="center">{% trans "Sign In" %}</h1>
+
+    <div class="container-fluid col-md-5">
+
+        <div class="container-fluid col-md-3" align="center">
+            <img class="mb-4 " src="{% static 'lego.svg' %}" alt="" width="72" height="72">
+        </div>
+
+        {% get_providers as socialaccount_providers %}
+
+        {% if socialaccount_providers %}
+        <p>{% blocktrans with site.name as site_name %}Please sign in with one
+        of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+        for a account and sign in below:{% endblocktrans %}</p>
+
+         <ul class="socialaccount_providers">
+            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+         </ul>
+        <p>Login problem? <a href="http://ranxiaolang.com/accounts/login/">Please click here.</a></p>
+        <h4 align="left">{% trans "Or" %}</h4>
+    </div>
+
+    <div class="container-fluid col-md-3">
+        {% include "socialaccount/snippets/login_extra.html" %}
+
+        {% else %}
+        <p>{% blocktrans %}If you have not created an account yet, then please
+        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+        {% endif %}
+
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %}
+          {% include 'account/snippets/bs4_form.html' with form=form %}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">{% trans "Sign In" %}</button>
+        </form>
+            <br>
+    </div>
+{% endblock %}

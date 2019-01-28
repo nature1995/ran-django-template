@@ -1,0 +1,99 @@
+body{
+	font-family:Arial;
+}
+#header{
+	margin:0 auto;
+	width:100%;
+	text-align:center;
+}
+
+#header h1{	
+	font-size:40px;
+	font-weight:bold;
+
+	left: 0px;
+	top: 0px;
+}
+
+#newGameBtn{
+	margin:20px auto;
+	
+	width:100px;
+	padding:10px 10px;
+	
+	background-color:#8f7a66;
+	color:#fff;
+	border-radius:10px;
+	text-decoration:none;
+}
+
+#newGameBtn:hover{
+	background-color:#9f8b77;
+}
+
+#header p{
+	font-size:20px;
+	margin:20px;
+}
+
+#game-pane{
+	width: 460px;
+	height: 460px;
+	padding: 20px;
+	
+	margin:0px auto;
+	background-color:#bbada0;
+	
+	border-radius:10px;
+	position: relative;
+}
+
+#game-pane .cell{
+	width:100px;
+	height:100px;
+	
+	border-radius:6px;
+	background-color:#ccc0b3;
+	
+	position:absolute;
+}
+
+#game-pane .number-cell{
+
+	border-radius:6px;
+	
+	font-size:60px;
+	text-align:center;
+	line-height:100px;
+	font-weight:bold;
+
+	position:absolute;
+}
+
+.over{
+	display: none;
+	margin: 0 auto;
+	background-color:#ccc0b3;
+	text-align: center;
+	border:1px solid #666666;
+	border-radius:10px;
+	left: 0px;
+	top: 0px;
+	position: absolute;
+}
+
+.over a{
+	padding: 10px;
+	background-color:#8f7a66;
+	color:#fff;
+	font-weight: bold;
+	font-size: 17px;
+	border-radius:10px;
+	text-decoration: none;
+}
+
+.over a:hover{
+	background-color:#9f8b77;
+}
+
+

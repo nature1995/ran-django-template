@@ -1,0 +1,21 @@
+language: python
+sudo: enabled
+python:
+    - "3.5"
+    - "3.6"
+    - "3.6-dev"  # 3.6 development branch
+    - "3.7-dev"  # 3.7 development branch
+env:
+    global:
+     - TRAVIS=true
+# command to install dependencies
+before_script:
+  - cd ran-django-template
+  - python manage.py makemigrations
+  - python manage.py migrate
+  - python manage.py collectstatic --noinput
+install:
+    - pip install -r requirements.txt
+
+script:
+    python manage.py test

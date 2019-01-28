@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+{% load staticfiles %}
+  <head>
+    <meta name="baidu-site-verification" content="MRMBZA60wg" />
+    <meta name="baidu-site-verification" content="MoExjihOpR" />
+    <meta charset="utf-8">
+    <meta name="keywords" content="然小狼 | ranxiaolang.com,然小狼 |，然小狼@,ranxiaolang.com,xiaolang,ran,ziran，,@ranxiaolang.com，nature，RANXIAOLANG">
+    <meta name="description" content="然小狼 | ranxiaolang.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Ziran Gong">
+    <link rel="icon" href="{% static "favicon.ico" %}">
+
+    <title>然小狼 | ranxiaolang</title>
+    <!-- core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  </head>
+
+  <body>
+     <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href=" {% url '主页' %}">
+        <img  src="{% static "logo0.png" %}"style="height: 3.8rem" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarNavDropdown">
+          <ul class="navbar-nav justify-content-end container-fluid p-0 mt-2 mt-md-0">
+              <li class="nav-item text-right">
+                  <a class="nav-link" href="{% url '主页' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="d-block d-md-none border-top border-top-1"></li>
+              <li class="nav-item dropdown text-right">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Article
+                  </a>
+              <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href=#>article01</a>
+              </div>
+              </li>
+
+              <li class="d-block d-md-none border-top border-top-1"></li>
+              <li class="nav-item dropdown text-right">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Resource
+                  </a>
+              <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{% static 'python_algorithm/python_algorithm.html'%}">Python-Algorithm</a>
+                  <a class="dropdown-item" href="{% static 'leetcode_python.pdf' %}">Leetcode-Python</a>
+                  <a class="dropdown-item" href="{% url 'baidu_cloud' %}">Baidu-Cloud</a>
+                  <a class="dropdown-item" href="{% url 'game_snake' %}">Snake</a>
+                  <a class="dropdown-item"href="{% url 'game_2048' %}">2048</a>
+              </div>
+              </li>
+
+              <li class="d-block d-md-none border-top border-top-1"></li>
+              <li class="nav-item dropdown text-right">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tools
+              </a>
+              <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Software</a>
+                  <a class="dropdown-item" href="#">Document</a>
+                  <a class="dropdown-item" href="{% url 'rasp' %}">IOT</a>
+              </div>
+              </li>
+
+              <li class="d-block d-md-none border-top border-top-1"></li>
+              <li class="nav-item text-right">
+              <a class="nav-link" href="https://nature1995.club/about/">About&nbsp</a>
+              </li>
+
+              <li class="nav-item text-right">
+
+                  {% if user.is_authenticated %}
+                  <a class="btn btn-outline-primary" href="JavaScript:{document.getElementById('退出').submit()}">Logout</a>
+                  <form id= '退出' method="POST" action='{% url 'LogoutPage' %}' align='center'>
+                  {% csrf_token %}
+                  <input type="hidden">
+                  </form>
+                  {% else %}
+                  <a class="btn btn-outline-primary" href="{% url 'LoginPage' %}">Login</a>&nbsp;
+                  <a class="btn btn-outline-primary" href="{% url 'SignupPage' %}">Sign up</a>
+                  {% endif %}
+              </li>
+          </ul>
+        </div>
+      </nav>
+     </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center" style=" background-image:url({% static "dragon.png"%});  background-size:cover;">
+        <div class="container" style="height:100%; width:100%;" >
+{#             <img style="width:100%; height:100%" src="{% static "dragon.jpg" %}"> #}
+
+            <h1 class="jumbotron-heading">然小狼</h1>
+{#             <img src="{% static "dragon.jpg" %}" width="30%"> #}
+
+{##**********************Begin Web Counter#*************************##}
+{#            <p class="lead">#}
+{#            <h6 class="font-weight-bold text-white">&emsp;No.#}
+{#            <a href="https://www.easycounter.com/">#}
+{#            <img src="https://www.easycounter.com/counter.php?ranxiaolang"#}
+{#            border="0" alt="Web Counter"></a></h6>#}
+{#            </p>#}
+{# #**********************Begin Web Counter#*************************##}
+
+            <p class="lead text-dark ">回到最初的梦想<br>Back to the original dream</p>
+            <p>
+              <a href="https://github.com/nature1995" class="btn btn-danger">Github</a>
+              <a href="https://www.linkedin.com/in/ziran-gong" class="btn btn-primary">Linkin</a>
+              <a href="https://nature1995.club" class="btn btn-secondary btn-lg">Blog</a>
+              <a href="http://ranxiaolang.com:8000" class="btn btn-light">Cloud Disk</a>
+            </p>
+        </div>
+      </section>
+
+     <section id="gallery">
+        <div class="album py-0">
+            <div class="container">
+              <div class="row">
+                {% for gallery in gallerys.all %}
+                <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="{{ gallery.image.url }}">
+                    <div class="card-body">
+                      <p class="card-text">{{gallery.description}}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+              </div>
+            </div>
+        </div>
+      </section>
+
+    <section id="footer_nav" class="bg-light mt-4">
+    <div class="container pt-3 pb-4">
+        <dl class="row mb-0">
+            <div class="col-sm">
+                <dt class="mb-1 mt-2">Topics</dt>
+                <dd class="mb-0">
+                    <a class="text-dark" href="http://www.ranxiaolang.com:8000">
+                        Cloud Disk</a>
+                </dd>
+             </div>
+            <div class="col-sm">
+                <dt class="mb-1 mt-2">About Me</dt>
+                <dd class="mb-0">
+                     <a class="text-dark" href="https://nature1995.club/about/">Ziran Gong&nbsp;</a>
+                </dd>
+            </div>
+            <div class="col-sm">
+                <dt class="mb-1 mt-2">Follow Us</dt>
+                <dd class="mb-0">
+                    <img style="height: 1.5rem" src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/qMUjOdv.png">
+                        <a class="text-dark" href="{% static 'gzr-youlang.png' %}">WeChat&nbsp;</a>
+                </dd>
+            </div>
+        </dl>
+    </div>
+    </section>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+
+        <p align="center"> ©2018-2019&nbsp;&nbsp;然小狼&nbsp;&nbsp;|&nbsp;Ranxiaolang</p>
+        <p align="center"> <a align="center" class="text-muted" href="http://www.miitbeian.gov.cn/"> All Rights Reserved.</a>
+        </p>
+      </div>
+    </footer>
+
+<!-- core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
