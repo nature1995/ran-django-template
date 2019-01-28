@@ -10,7 +10,6 @@ env:
      - TRAVIS=true
 # command to install dependencies
 before_script:
-  - cd ran-django-template
   - python manage.py makemigrations
   - python manage.py migrate
   - python manage.py collectstatic --noinput
