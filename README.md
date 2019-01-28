@@ -57,7 +57,12 @@ username: ranxiaolang
 email: YOUR EMAIL  
 password: ranxiaolang  
 ```
-Access the web page though this link: http://127.0.0.1:8000/admin 
+Access the web page though this link: http://127.0.0.1:8000/admin
+
+**Django Restframework**
+
+Access the web page though this link: http://127.0.0.1:8000/iot/
+
 # License
 
 This software is licensed under the GNU General Public License v3.0 License. For more information, read the file `LICENSE`.

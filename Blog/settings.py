@@ -44,9 +44,9 @@ AUTHENTICATION_BACKENDS = (
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = 'gzr2008@vip.qq.com' # 你的 QQ 账号和授权码
-EMAIL_HOST_PASSWORD = 'fsuebzoaafnhbejh'
+EMAIL_HOST_PASSWORD = 'YOUR_API_PASSWORD' # YOUR_API_PASSWORD
 EMAIL_USE_TLS = True  # 这里必须是 True，否则发送不成功
-EMAIL_FROM = 'gzr2008@vip.qq.comm'# 你的 QQ 账号
+EMAIL_FROM = 'gzr2008@vip.qq.comm' # 你的 QQ 账号
 DEFAULT_FROM_EMAIL = 'Ziran.Gong<noreply@qq.com>gzr2008@vip.qq.com'
 
 
@@ -167,7 +167,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Face++ config
-API_KEY = 'GseLmFPc_PRfnjUfPkZ1lmOy_z2dwiv8'
-API_SECRET = 's3S80XFyQJrDDvc6NVF4sPPT7btnq-WD'
