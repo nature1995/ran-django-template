@@ -11,6 +11,8 @@ Author: Ziran Gong
 # Preview
 http://ranxiaolang.com
 
+![image](https://github.com/nature1995/ran-django-template/raw/master/images/preview.png)
+
 # Compatibility
 The codes are tested using Travis-CI platform with django 2.1.5 and Python 3.5, 3.6, 3.6-dev, 3.7, 3.7-dev.
 
@@ -46,7 +48,9 @@ python manage.py runserver
 ```
 Access the web page though this link: http://127.0.0.1:8000/
 
-# Citation
+# License
+
+This software is licensed under the GNU General Public License v3.0 License. For more information, read the file `LICENSE`.
 
 It need send a email to gzr2008@vip.qq.com and just can be used for non-business projects.
 
