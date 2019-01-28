@@ -6,7 +6,7 @@
 [![django2.1.5](https://img.shields.io/badge/django-2.1.5-orange.svg)]()
 [![Build Status](https://travis-ci.com/nature1995/ran-django-template.svg?token=ihxd9jwdJ367UvYy3j9G&branch=master)](https://travis-ci.com/nature1995/ran-django-template)
 
-Django, AI facial recognition, IOT smart home, Rest Framework, Face++. Author: Ziran Gong
+Author: Ziran Gong
 
 # Preview
 http://ranxiaolang.com
