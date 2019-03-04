@@ -29,8 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
-#Application definition
-# 基本设定
+# Application definition
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 LOGIN_REDIRECT_URL = '/accounts/profile/'
@@ -40,14 +39,14 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-# # 邮箱设定
-EMAIL_HOST = 'smtp.qq.com'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = 'gzr2008@vip.qq.com' # 你的 QQ 账号和授权码
-EMAIL_HOST_PASSWORD = 'YOUR_API_PASSWORD' # YOUR_API_PASSWORD
-EMAIL_USE_TLS = True  # 这里必须是 True，否则发送不成功
-EMAIL_FROM = 'gzr2008@vip.qq.comm' # 你的 QQ 账号
-DEFAULT_FROM_EMAIL = 'Ziran.Gong<noreply@qq.com>gzr2008@vip.qq.com'
+# Email Setup
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.exmail.qq.com'
+EMAIL_PORT = 465  # Your send port
+EMAIL_HOST_USER = 'example@ranxiaolang.com'
+EMAIL_HOST_PASSWORD = 'Your Password'  # Use the dedicate password not your email password
+EMAIL_USE_SSL = True  # SSL or TSL depend on email provider
+# EMAIL_USE_TSL = True  # SSL or TSL depend on email provider
 
 
 INSTALLED_APPS = [
@@ -63,18 +62,17 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
-    'apps.blogs',
-    'apps.qrcreate',
     'myauth',
     'widget_tweaks',
-    'apps.myapp',
     'rest_framework',
+    'apps.myapp',
+    'apps.blogs',
+    'apps.qrcreate',
     # 'account',
 ]
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
-EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

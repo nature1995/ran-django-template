@@ -23,7 +23,7 @@
   <body>
    <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href=" {% url '主页' %}">
+          <a class="navbar-brand" href=" {% url 'main' %}">
           <img  src="{% static "logo0.png" %}"style="height: 3.8rem" />
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse " id="navbarNavDropdown">
           <ul class="navbar-nav justify-content-end container-fluid p-0 mt-2 mt-md-0">
               <li class="nav-item text-right">
-              <a class="nav-link" href="{% url '主页' %}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'main' %}">Home <span class="sr-only">(current)</span></a>
               </li>
 
               <li class="d-block d-md-none border-top border-top-1"></li>
@@ -41,7 +41,7 @@
               Article
               </a>
               <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href=#>ROG</a>
+                  <a class="dropdown-item" href="{% url 'blogs' %}">Blog</a>
               </div>
               </li>
 
@@ -92,7 +92,6 @@
       </div>
     </nav>
   </header>
-  <br>
 
   {% block content %}
 
