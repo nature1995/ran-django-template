@@ -13,14 +13,17 @@
 
     <title>然小狼 | ranxiaolang</title>
     <!-- core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   </head>
 
   <body>
      <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href=" {% url 'main' %}">
-        <img  src="{% static "logo0.png" %}"style="height: 3.8rem" />
+        <a class="navbar-brand animated rotateIn" href=" {% url 'main' %}">
+        <img  src="{% static "/images/logo0.png" %}"style="height: 3.8rem" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,17 +37,23 @@
 
               <li class="d-block d-md-none border-top border-top-1"></li>
               <li class="nav-item dropdown text-right">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Article
-                  </a>
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Projects
+              </a>
               <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="{% url 'blogs' %}">Blog</a>
+                  <a class="dropdown-item" href="https://nature1995.club/Face-Recognition-System">Intelligent Facial Recognition System</a>
+                  <a class="dropdown-item" href="https://nature1995.club/Flight-Delay-Prediction">Prediction of Flight Delays</a>
+                  <a class="dropdown-item" href="https://github.com/angryducks/speech-box">AI Text and Recording keyword Extraction</a>
+                  <a class="dropdown-item" href="https://github.com/angryducks/angry-ducks">AI Speech Sentiment Text Recorder</a>
+                  <a class="dropdown-item" href="https://github.com/nature1995/weather-forecast-alert">Weather Forecast Alert</a>
+                  <a class="dropdown-item" href="https://sites.google.com/view/ziran">Intelligent Facial Recognition System (Web)</a>
+                  <a class="dropdown-item" href="https://sites.google.com/view/ee608">Prediction of Flight Delays (Web)</a>
               </div>
               </li>
 
               <li class="d-block d-md-none border-top border-top-1"></li>
               <li class="nav-item dropdown text-right">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Resource
                   </a>
               <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
@@ -56,12 +65,12 @@
 
               <li class="d-block d-md-none border-top border-top-1"></li>
               <li class="nav-item dropdown text-right">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Tools
               </a>
               <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Software</a>
-                  <a class="dropdown-item" href="#">Document</a>
+                  <a class="dropdown-item" href="">Software</a>
+                  <a class="dropdown-item" href="">Document</a>
                   <a class="dropdown-item" href="{% url 'rasp' %}">IOT</a>
               </div>
               </li>
@@ -74,14 +83,14 @@
               <li class="nav-item text-right">
 
                   {% if user.is_authenticated %}
-                  <a class="btn btn-outline-primary" href="JavaScript:{document.getElementById('退出').submit()}">Logout</a>
+                  <a class="btn btn-outline-dark" href="JavaScript:{document.getElementById('退出').submit()}">Logout</a>
                   <form id= '退出' method="POST" action='{% url 'LogoutPage' %}' align='center'>
                   {% csrf_token %}
                   <input type="hidden">
                   </form>
                   {% else %}
-                  <a class="btn btn-outline-primary" href="{% url 'LoginPage' %}">Login</a>&nbsp;
-                  <a class="btn btn-outline-primary" href="{% url 'SignupPage' %}">Sign up</a>
+                  <a class="btn btn-dark" href="{% url 'LoginPage' %}">Sign in</a>&nbsp;
+                  <a class="btn btn-outline-dark" href="{% url 'SignupPage' %}">Sign up</a>
                   {% endif %}
               </li>
           </ul>
@@ -89,32 +98,67 @@
       </nav>
      </header>
 
+    <div id="top-display" class="container-fluid p-0">
+        <div id="topDisplay" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#topDisplay" data-slide-to="0" class="active"></li>
+          <li data-target="#topDisplay" data-slide-to="1" class=""></li>
+          <li data-target="#topDisplay" data-slide-to="2" class=""></li>
+        </ol>
+        <div class="carousel-inner">
+          <a class="carousel-item active" href="">
+              <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/An5zfe.gif" alt="slide1">
+          </a>
+          <a class="carousel-item" href="">
+              <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/AnI9ld.png" alt="slide2">
+          </a>
+          <a class="carousel-item " href="">
+              <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/AnIpSH.png" alt="slide3">
+          </a>
+        </div>
+        <a class="carousel-control-prev" href="#topDisplay" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#topDisplay" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        </div>
+    </div>
+
     <main role="main">
 
-      <section class="jumbotron text-center" style=" background-image:url({% static "dragon.png"%});  background-size:cover;">
-        <div class="container" style="height:100%; width:100%;" >
-{#             <img style="width:100%; height:100%" src="{% static "dragon.jpg" %}"> #}
-
-            <h1 class="jumbotron-heading">然小狼</h1>
-{#             <img src="{% static "dragon.jpg" %}" width="30%"> #}
-
-{##**********************Begin Web Counter#*************************##}
-{#            <p class="lead">#}
-{#            <h6 class="font-weight-bold text-white">&emsp;No.#}
-{#            <a href="https://www.easycounter.com/">#}
-{#            <img src="https://www.easycounter.com/counter.php?ranxiaolang"#}
-{#            border="0" alt="Web Counter"></a></h6>#}
-{#            </p>#}
-{# #**********************Begin Web Counter#*************************##}
-
-            <p class="lead text-dark ">回到最初的梦想<br>Back to the original dream</p>
-            <p>
-              <a href="https://github.com/nature1995" class="btn btn-danger">Github</a>
-              <a href="https://www.linkedin.com/in/ziran-gong" class="btn btn-primary">Linkin</a>
-              <a href="https://nature1995.club" class="btn btn-secondary btn-lg">Blog</a>
-              <a href="http://ranxiaolang.com:8000" class="btn btn-light">Cloud Disk</a>
-            </p>
-        </div>
+      <section class="jumbotron text-center" style="background-image:url(https://s2.ax1x.com/2019/03/19/An57l9.jpg);background-size:cover;">
+      <canvas id="home-canvas" style="height:10px; width:100%;"></canvas>
+      <p>
+        <a href="https://github.com/nature1995" class="btn btn-danger">Github</a>
+        <a href="https://www.linkedin.com/in/ziran-gong" class="btn btn" style="background-color: #2c90ee; color: white">Linkedin</a>
+        <a href="https://nature1995.club" class="btn btn-dark btn-lg">Blog</a>
+        <a href="http://www.ranxiaolang.com:8000" class="btn btn-light">Cloud Disk</a>
+      </p>
+      <p>
+        <a href="https://github.com/nature1995">
+          <span style="color: #d72e3d;">
+          <i class="fab fa-github fa-3x"></i>
+          </span>
+        </a>
+        <a href="https://www.linkedin.com/in/ziran-gong">
+        <span style="color: #2c90ee;">
+          <i class="fab fa-linkedin-in fa-3x"></i>
+          </span>
+        </a>
+        <a href="https://nature1995.club/">
+          <span style="color: #2e3338;">
+          <i class="fas fa-blog fa-3x"></i>
+          </span>
+        </a>
+        <a href="http://www.ranxiaolang.com:8000">
+          <span style="color: #f7f8f9;">
+          <i class="fas fa-server fa-3x"></i>
+          </span>
+        </a>
+      </p>
       </section>
 
      <section id="gallery">
@@ -156,7 +200,7 @@
                 <dt class="mb-1 mt-2">Follow Us</dt>
                 <dd class="mb-0">
                     <img style="height: 1.5rem" src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/qMUjOdv.png">
-                        <a class="text-dark" href="{% static 'gzr-youlang.png' %}">WeChat&nbsp;</a>
+                        <a class="text-dark" href="{% static '/images/gzr-youlang.png' %}">WeChat&nbsp;</a>
                 </dd>
             </div>
         </dl>

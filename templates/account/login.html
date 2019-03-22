@@ -14,7 +14,7 @@
     <div class="container-fluid col-md-5">
 
         <div class="container-fluid col-md-3" align="center">
-            <img class="mb-4 " src="{% static 'lego.svg' %}" alt="" width="72" height="72">
+            <img class="mb-4 " src="{% static 'sign.svg' %}" alt="" width="72" height="72">
         </div>
 
         {% get_providers as socialaccount_providers %}
@@ -46,7 +46,7 @@
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
           <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">{% trans "Sign In" %}</button>
+          <button class="btn btn-lg btn-dark btn-block" type="submit">{% trans "Sign In" %}</button>
         </form>
             <br>
     </div>

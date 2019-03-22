@@ -9,9 +9,10 @@
 Author: Ziran Gong
 
 # Preview
-http://ranxiaolang.com
 
-![image](https://github.com/nature1995/ran-django-template/raw/master/images/preview.png)
+https://ranxiaolang.com
+
+![image](https://github.com/nature1995/ran-django-template/raw/master/images/preview2.2.png)
 
 # Compatibility
 The codes are tested using Travis-CI platform with django 2.1.5 and Python 3.5, 3.6, 3.6-dev, 3.7, 3.7-dev.

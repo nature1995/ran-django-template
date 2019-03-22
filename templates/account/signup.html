@@ -13,7 +13,7 @@
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
 {% csrf_token %}
  <div class="container-fluid col-md-3" align="center">
-    <img class="mb-4 " src="{% static 'lego.svg' %}" alt="" width="72" height="72">
+    <img class="mb-4 " src="{% static 'sign.svg' %}" alt="" width="72" height="72">
  </div>
 <div class="container-fluid col-md-3">
 {% include 'account/snippets/bs4_form.html' with form=form %}
@@ -29,10 +29,9 @@
 <p class="text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 <div class="container-fluid col-md-3">
 <div class="form-group">
-<button type="submit" class="btn btn-lg btn-primary btn-block">{% trans "Sign Up" %}</button>
+<button type="submit" class="btn btn-lg btn-dark btn-block">{% trans "Sign Up" %}</button>
 </div>
 </div>
-
 </form>
-<br>
+
 {% endblock %}
