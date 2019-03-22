@@ -2,7 +2,7 @@
 # ran-django-template
 [![python3.5](https://img.shields.io/badge/python-3.5-red.svg)]()
 [![python3.6](https://img.shields.io/badge/python-3.6-brightgreen.svg)]()
-[![python3.7](https://img.shields.io/badge/python-3.6-blue.svg)]()
+[![python3.7](https://img.shields.io/badge/python-3.7-blue.svg)]()
 [![django2.1.5](https://img.shields.io/badge/django-2.1.5-orange.svg)]()
 [![Build Status](https://travis-ci.com/nature1995/ran-django-template.svg?token=ihxd9jwdJ367UvYy3j9G&branch=master)](https://travis-ci.com/nature1995/ran-django-template)
 
@@ -13,6 +13,11 @@ Author: Ziran Gong
 https://ranxiaolang.com
 
 ![image](https://github.com/nature1995/ran-django-template/raw/master/images/preview2.2.png)
+<div>
+<img src="https://s2.ax1x.com/2019/03/23/A8XvGD.png" width="270" height="550" alt="Result01.png" title="Result01.png" />
+<img src="https://s2.ax1x.com/2019/03/23/A8XxRe.png" width="270" height="550" alt="Result03.png" title="Result03.png" />
+<img src="https://s2.ax1x.com/2019/03/23/A8XjPO.png" width="270" height="550" alt="Result02.png" title="Result02.png" />  
+</div>
 
 # Compatibility
 The codes are tested using Travis-CI platform with django 2.1.5 and Python 3.5, 3.6, 3.6-dev, 3.7, 3.7-dev.
