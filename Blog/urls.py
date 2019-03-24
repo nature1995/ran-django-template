@@ -23,6 +23,7 @@ from django.conf import settings
 from apps.qrcreate.views import generate_qrcode
 from django.views.static import serve
 import Blog.views
+from apps.blog import views as ablog
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
@@ -31,6 +32,14 @@ urlpatterns = [
     path(r'accounts/', include('allauth.urls')),
     path(r'accounts/', include('myauth.urls')),
     # path(r'account/', include('account.urls')),
+    path('blog/', ablog.ablog, name='ablog'),
+    path('articles/<int:id>/', ablog.detail, name='detail'),
+    path('category/<int:id>/', ablog.search_category, name='category_menu'),
+    path('tag/<str:tag>/', ablog.search_tag, name='search_tag'),
+    path('archives/<str:year>/<str:month>', ablog.archives, name='archives'),
+    path('summernote/', include('django_summernote.urls')),
+    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     url(r'^favicon.ico$', RedirectView.as_view(url=r'media/favicon.ico')),
     url(r'^qr/(.+)$', generate_qrcode, name='qr'),
     url(r'^qr/', home, name='qrcode'),

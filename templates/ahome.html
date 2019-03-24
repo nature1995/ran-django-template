@@ -1,0 +1,53 @@
+{% extends "abase.html" %}
+{% load static %}
+{% block content %}
+    <div class="posts">
+        {% for post in post_list %}
+            <div class="post-container">
+                <section class="post">
+                    <header class="post-header">
+                        <img width="48" height="48" alt="Tilo Mitra's avatar" class="post-avatar"
+                             src='{% static "images/avatar.jpg" %}'>
+                        <h2 class="post-title"><a href="{% url 'detail' id=post.id %}"
+                                                  style="text-decoration: none; color: #2e3338">{{ post.title }}</a></h2>
+                        <p class="post-meta">
+                            <i class="fas fa-calendar" aria-hidden="true"></i>&nbsp;{{ post.pub_time |date:'Y-m-d' }}&nbsp;&nbsp;
+                            <i class="fas fa-eye" aria-hidden="true"></i>&nbsp;Views: {{ post.views }}&nbsp;&nbsp;
+                            <i class="fas fa-book"></i>&nbsp;{{ post.category }}&nbsp;&nbsp;
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            {#striptags用于过滤正文中所有的HTML标签#}
+                            {#truncatechars用于截取正文前300个字符#}
+                            {{ post.content|striptags|truncatechars:300 }}
+                        </p>
+                    </div>
+                    <div>
+
+                        <a class="button" href="{% url 'detail' id=post.id %}"
+                           style="text-decoration: none">Read more</a>
+                    </div>
+
+                </section>
+            </div>
+        {% endfor %}
+    </div><!-- /.blog-post -->
+    {% if post_list.object_list and post_list.paginator.num_pages > 1 %}
+        <div>
+            {% if post_list.has_previous %}
+                <a class="footer" href="?page={{ post_list.previous_page_number }}"
+                   style="text-decoration: none; float: left; padding-left: 1%">
+                    <i class="fas fa-angle-left"></i>&nbsp;&nbsp;previous
+                </a>
+            {% endif %}
+            {% if post_list.has_next %}
+                <a class="footer" href="?page={{ post_list.next_page_number }}"
+                   style="text-decoration: none; float: right; padding-right: 1%">
+                    Next&nbsp;&nbsp;<i class="fas fa-angle-right"></i>
+                </a>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}   

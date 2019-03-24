@@ -69,9 +69,10 @@
               Tools
               </a>
               <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'ablog' %}">Ziran's Blog | 自然博客</a>
+                  <a class="dropdown-item" href="{% url 'rasp' %}">IOT</a>
                   <a class="dropdown-item" href="">Software</a>
                   <a class="dropdown-item" href="">Document</a>
-                  <a class="dropdown-item" href="{% url 'rasp' %}">IOT</a>
               </div>
               </li>
 
@@ -134,7 +135,7 @@
       <p>
         <a href="https://github.com/nature1995" class="btn btn-danger">Github</a>
         <a href="https://www.linkedin.com/in/ziran-gong" class="btn btn" style="background-color: #2c90ee; color: white">Linkedin</a>
-        <a href="https://nature1995.club" class="btn btn-dark btn-lg">Blog</a>
+        <a href="{% url 'ablog' %}" class="btn btn-dark btn-lg">Blog</a>
         <a href="http://www.ranxiaolang.com:8000" class="btn btn-light">Cloud Disk</a>
       </p>
       <p>
@@ -148,7 +149,7 @@
           <i class="fab fa-linkedin-in fa-3x"></i>
           </span>
         </a>
-        <a href="https://nature1995.club/">
+        <a href="{% url 'ablog' %}">
           <span style="color: #2e3338;">
           <i class="fas fa-blog fa-3x"></i>
           </span>
