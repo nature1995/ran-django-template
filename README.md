@@ -39,6 +39,7 @@ For Blog
     INSTALLED_APPS = [
 		'jet.dashboard', #  before your django admin
 		'jet',	#  before your django admin
+	    	'apps.gallery.apps.GalleryConfig',
 		'allauth',
 		'allauth.account',
 		'allauth.socialaccount',
@@ -94,7 +95,7 @@ return widget.render(
 ```
 ## Demo
 
-Web Page: https://ranxiaolang.com
+Web Page: https://ranxiaolang.com or https://www.zran.xyz
 
 ![image](https://github.com/nature1995/ran-django-template/raw/master/images/preview2.2.png)
 
