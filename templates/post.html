@@ -1,0 +1,44 @@
+{% extends "abase.html" %}
+{% block content %}
+    <div class="posts">
+        <section class="post">
+            <header class="post-header">
+                <h2 class="post-title"><a href="{% url 'detail' id=post.id %}"
+                                          style="text-decoration: none; color: #2e3338">{{ post.title }}</a></h2>
+                <p class="post-meta">
+                    <i class="fas fa-calendar" aria-hidden="true"></i>&nbsp; {{ post.pub_time|date:'Y-m-d H:i' }}&nbsp;&nbsp;
+                    <i class="fas fa-book"></i>&nbsp;
+                    <a href="{% url 'category_menu' id=post.category_id %}"
+                       style="text-decoration: none; color: #999999">{{ post.category }}</a>&nbsp;&nbsp;
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                    {% for tag in tags %}
+                        <a href="{% url 'search_tag' tag=tag %}"
+                           style="text-decoration: none; color: #999999">{{ tag }}</a>
+                    {% endfor %}&nbsp;&nbsp;
+                    <i class="fas fa-eye" aria-hidden="true"></i>&nbsp;Views: {{ post.views }}
+                </p>
+            </header>
+
+            <div class="post-description">
+                <p>
+                    {{ post.content |safe }}
+                </p>
+            </div>
+        </section>
+    </div><!-- /.blog-post -->
+    <!-- Top and bottom article switching -->
+    <div>
+        {% if prev_post %}
+            <a class="footer" href="{% url 'detail' id=prev_post.id %}" style="text-decoration: none; float: left;">
+                <i class="fas fa-angle-left"></i>&nbsp;&nbsp;Pevious：{{ prev_post.title }}
+            </a>
+        {% endif %}
+        {% if next_post %}
+            <a class="footer" href="{% url 'detail' id=next_post.id %}" style="text-decoration: none; float: right;">
+                Next：{{ next_post.title }}&nbsp;&nbsp;
+                <i class="fas fa-angle-right"></i>
+            </a>
+        {% endif %}
+    </div>
+
+{% endblock %}

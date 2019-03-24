@@ -17,4 +17,11 @@ requests>=2.20.1
 requests-oauthlib>=1.2.0
 six==1.11.0
 setuptools==40.6.2
+django-extensions
+django-werkzeug-debugger-runserver
+pyOpenSSL
+feedparser
+django-jet
+django-summernote==0.8.8.6
+pytz==2018.3
 

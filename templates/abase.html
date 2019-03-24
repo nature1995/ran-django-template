@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Ziran's Blog | 自然博客{% endblock %}</title>
+    <!-- Pure css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/grids-responsive-min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+</head>
+<body>
+<div id="layout" class="pure-g">
+    <!--Left sidebar start-->
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title"><a href="{% url 'ablog' %}" style="text-decoration: none">自然 博客</a></h1>
+            <br>
+            <h2 class="brand-tagline" style="color: #f3f4f6">Back to Original Dream</h2>
+            <br>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        {% for category in category_list %}
+                            <a class="pure-button" href="{% url 'category_menu' id=category.id %}"
+                               style="text-decoration: none ;color: #324066">{{ category }}</a>
+                        {% endfor %}&nbsp;
+                    </li>
+                </ul>
+                <br>
+                <h3 class="brand-tagline" style="margin: 2%;color: #202124">Archives</h3>
+                <ul class="nav-list" style="margin: 2%">
+                    {% for m in months %}
+                        <li>
+                            <a href="{% url 'archives' year=m.year month=m.month %}"
+                               style="text-decoration: none;color: #202124">{{ m | date:'Y.m' }}</a>
+                        </li>
+                    {% empty %}
+                        No archives！
+                    {% endfor %}
+                </ul>
+                <br>
+                <ul class="nav-list">
+                <li>
+                    <a href="{% url 'main' %}" style="text-decoration: none">
+                        <i class="fas fa-backward" style="font-size: 30px" aria-hidden="true" title="Back home"></i>
+                    </a>
+                    &nbsp;
+                    <a href="{% url 'ablog' %}" style="text-decoration: none">
+                        <i class="fas fa-chevron-circle-left" style="font-size: 30px" aria-hidden="true" title="Back blog home"></i>
+                    </a>
+                    &nbsp;
+                    <a href="{% static '/images/gzr-youlang.png' %}" style="text-decoration: none">
+                        <i class="fab fa-weixin" style="font-size: 30px" aria-hidden="true" title="Wexin"></i>
+                    </a>
+                    &nbsp;
+                    <a href=mailto:gzr2008@vip.qq.com style="text-decoration: none">
+                        <i class="fas fa-envelope" style="font-size: 30px" aria-hidden="true" title="Email"></i>
+                    </a>
+                    &nbsp;
+                    <a href="https://github.com/nature1995/" style="text-decoration: none" title="Github"
+                       target="_blank">
+                        <i class="fab fa-github-alt" style="font-size: 34px" aria-hidden="true"></i>
+                    </a>
+                    &nbsp;
+                </li>
+            </ul>
+            </nav>
+        </div>
+    </div>
+    <!--Left sidebar end-->
+    <!--Article list start-->
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <!--Article list end-->
+    <div class="go-top">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script>
+    $(function () {
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 1000)
+                $('div.go-top').show();
+            else
+                $('div.go-top').hide();
+        });
+        $('div.go-top').click(function () {
+            $('html, body').animate({scrollTop: 0}, 500);
+        });
+    });
+</script>
+</body>
+</html>

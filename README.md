@@ -1,5 +1,11 @@
 
 # ran-django-template
+
+<div align="center">
+    <a href=""><img src="https://s2.ax1x.com/2019/03/24/AYmuIf.png" width="200" hegiht="200"/></a>
+</div>
+<br>
+
 [![python3.5](https://img.shields.io/badge/python-3.5-red.svg)]()
 [![python3.6](https://img.shields.io/badge/python-3.6-brightgreen.svg)]()
 [![python3.7](https://img.shields.io/badge/python-3.7-blue.svg)]()
@@ -8,40 +14,49 @@
 
 Author: Ziran Gong
 
-# Preview
+## Feature
+For Site
+- [x] Create Django web server in local
+- [x] Gallery and carousel control in home page
+- [x] Beautify site admin interface
+- [x] Restful API for IOT control
+- [x] Oauth2.0 for third party account login，such as: Github
+- [x] QR code generator
+- [x] PC, Mobile auto adaptation
 
-https://ranxiaolang.com
 
-![image](https://github.com/nature1995/ran-django-template/raw/master/images/preview2.2.png)
-<div>
-<img src="https://s2.ax1x.com/2019/03/23/A8XvGD.png" width="270" height="550" alt="Result01.png" title="Result01.png" />
-<img src="https://s2.ax1x.com/2019/03/23/A8XxRe.png" width="270" height="550" alt="Result03.png" title="Result03.png" />
-<img src="https://s2.ax1x.com/2019/03/23/A8XjPO.png" width="270" height="550" alt="Result02.png" title="Result02.png" />  
-</div>
+For Blog
+- [x] Rich text editor
+- [x] Article management and counting, including adding, deleting and editing
+- [x] Tag management, including adding, deleting and editing
+- [x] Classified management, including adding, deleting and editing
+- [x] Read more
 
-# Compatibility
-The codes are tested using Travis-CI platform with django 2.1.5 and Python 3.5, 3.6, 3.6-dev, 3.7, 3.7-dev.
+## Documentation
 
-# Requirements
-The code requires [Python 3.x](https://www.python.org/download/releases/3.6/), as well as the following python libraries: 
+#### Add INSTALLED_APPS setting:
+```
+    INSTALLED_APPS = [
+		'jet.dashboard', #  before your django admin
+		'jet',	#  before your django admin
+		'allauth',
+		'allauth.account',
+		'allauth.socialaccount',
+		'allauth.socialaccount.providers.github',
+		'myauth',
+		'widget_tweaks',
+		'werkzeug_debugger_runserver',
+		'django_extensions',
+		'rest_framework',
+		'apps.myapp',
+		'apps.blogs',
+		'apps.qrcreate',
+		'apps.blog',    # Blog for new version
+		'django_summernote',
+    ]
+```
 
-* numpy
-* Pillow
-* django
-* cryptography
-* django-allauth  0.37.1
-* django-widget-tweaks  1.4.3
-* pip  18.0
-* qrcode  6.0
-* setuptools  40.4.3
-* djangorestframework
-* django-filter
-* markdown
-* requests
-
-Those modules can be installed using: `pip3 install xxx` or `pip install xxx`.
-
-# How to run it
+#### How to run it
 ```
 git clone https://github.com/nature1995/ran-django-template.git
 ```
@@ -50,12 +65,57 @@ cd ran-django-template
 pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8000
 ```
-Access the web page though this link: http://127.0.0.1:8000/
+Access the web page though this link: http://0.0.0.0:8000/
 
-**Admin Account**
+## Compatibility
 
+The codes are tested using Travis-CI platform with django 2.1.5 and Python 3.5, 3.6, 3.7
+
+Django\Python  	| 3.5 | 3.6 | 3.7 
+--------------- | --- | --- | ---
+2.0.x   		|  *  |  * 	|  *
+2.1.x    		|  *  |  * 	|  *
+
+**Notice: Django 2.1.x need to using the following change:**
+
+If you have the ERROR message with `render() got an unexpected keyword argument 'renderer'；`, 
+please find Python folder: `\lib\site-packages\django\forms\boundfield.py`. 
+Then, comment the as_widget, line 93, like the follow:
+
+```
+return widget.render(
+	name=self.html_initial_name if only_initial else self.html_name,
+	value=self.value(),
+	attrs=attrs,
+	# renderer=self.form.renderer,
+)
+```
+## Demo
+
+Web Page: https://ranxiaolang.com
+
+![image](https://github.com/nature1995/ran-django-template/raw/master/images/preview2.2.png)
+
+<div>
+<img src="https://s2.ax1x.com/2019/03/24/AYu7IP.png" width="820" height="400" alt="Result01.png" title="Result01.png" />
+</div>
+<br>
+<div>
+<img src="https://s2.ax1x.com/2019/03/24/AYuVEt.png" width="410" height="250" alt="Result01.png" title="Result01.png" />
+<img src="https://s2.ax1x.com/2019/03/24/AYuAHI.png" width="410" height="250"  alt="Result03.png" title="Result03.png" />
+</div>
+<br>
+<div>
+<img src="https://s2.ax1x.com/2019/03/23/A8XvGD.png" width="270" height="550" alt="Result01.png" title="Result01.png" />
+<img src="https://s2.ax1x.com/2019/03/23/A8XxRe.png" width="270" height="550" alt="Result03.png" title="Result03.png" />
+<img src="https://s2.ax1x.com/2019/03/23/A8XjPO.png" width="270" height="550" alt="Result02.png" title="Result02.png" />  
+</div>
+
+## Others
+
+**Admin Account**  
 ``` 
 python manage.py createsuperuser
 
@@ -63,15 +123,22 @@ username: ranxiaolang
 email: YOUR EMAIL  
 password: ranxiaolang  
 ```
-Access the web page though this link: http://127.0.0.1:8000/admin
+Access the web page though this link: http://0.0.0.0:8000/admin
 
-**Django Restframework**
+**Django Restframework**  
+Access the web page though this link: http://0.0.0.0:8000/iot/
 
-Access the web page though this link: http://127.0.0.1:8000/iot/
+## TODO
+- [ ] Add more social Oauth2.0
+- [ ] Add comment
+- [ ] Add site map
 
-# License
+## Author
 
-This software is licensed under the GNU General Public License v3.0 License. For more information, read the file `LICENSE`.
+* **Ziran Gong** - [Web Page](http://ranxiaolang.com)
 
+## License
+
+This software is licensed under the GNU General Public License v3.0 License. For more information, read the file `LICENSE`.  
 It need send a email to gzr2008@vip.qq.com and just can be used for non-business projects.
 
