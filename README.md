@@ -2,7 +2,7 @@
 # ran-django-template
 
 <div align="center">
-    <a href=""><img src="https://s2.ax1x.com/2019/03/24/AYmuIf.png" width="200" hegiht="200"/></a>
+    <a href=""><img src="https://s2.ax1x.com/2019/03/24/AYmuIf.png" width="100" hegiht="100"/></a>
 </div>
 <br>
 
