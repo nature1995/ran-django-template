@@ -23,7 +23,7 @@ For Site
 - [x] Oauth2.0 for third party account login，such as: Github
 - [x] QR code generator
 - [x] PC, Mobile auto adaptation
-
+- [x] Support [Font awesome](https://fontawesome.com/), [django-jet](http://jet.geex-arts.com/), [Bootstrap](https://getbootstrap.com/), [Animate.css](https://daneden.github.io/animate.css/)
 
 For Blog
 - [x] Rich text editor
@@ -31,6 +31,7 @@ For Blog
 - [x] Tag management, including adding, deleting and editing
 - [x] Classified management, including adding, deleting and editing
 - [x] Read more
+
 
 ## Documentation
 
