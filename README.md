@@ -77,8 +77,9 @@ The codes are tested using Travis-CI platform with django 2.1.5 and Python 3.5, 
 
 Django\Python  	| 3.5 | 3.6 | 3.7 
 --------------- | --- | --- | ---
-2.0.x   		|  *  |  * 	|  *
-2.1.x    		|  *  |  * 	|  *
+2.0.x   	|  *  |  *  |  *
+2.1.x    	|  *  |  *  |  *
+2.2.x		|  x  |  x  |  x 
 
 **Notice: Django 2.1.x need to using the following change:**
 
