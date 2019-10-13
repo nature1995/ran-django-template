@@ -116,6 +116,47 @@ Web Page: https://ranxiaolang.com or https://www.zran.xyz
 <img src="https://s2.ax1x.com/2019/03/23/A8XjPO.png" width="270" height="550" alt="Result02.png" title="Result02.png" />  
 </div>
 
+## Site Admin installation
+
+Add 'jet.dashboard' application to the INSTALLED_APPS setting of your Django project settings.py file (note it should be before 'jet'):
+```
+INSTALLED_APPS = (
+    ...
+    'jet.dashboard',  # before your django admin
+    'jet',  # before your django admin
+    'django.contrib.admin',
+    ...
+)
+```
+
+Add URL-pattern to the urlpatterns of your Django project urls.py file (they are needed for related–lookups and autocompletes):
+before 'jet'):
+```
+urlpatterns = patterns(
+    ...
+    path(r'admin/', admin.site.urls),
+    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+    ...
+)
+before 'jet'):
+```
+For Google Analytics widgets only install python package:
+```
+pip install google-api-python-client==1.4.1
+```
+Create database tables:
+```
+python manage.py migrate dashboard
+# or
+python manage.py syncdb
+```
+Collect static if you are in production environment:
+before 'jet'):
+```
+python manage.py collectstatic
+```
+
 ## Others
 
 **Admin Account**  
@@ -143,5 +184,5 @@ Access the web page though this link: http://0.0.0.0:8000/iot/
 ## License
 
 This software is licensed under the GNU General Public License v3.0 License. For more information, read the file `LICENSE`.  
-It need send a email to gzr2008@vip.qq.com and just can be used for non-business projects.
+Just can be used for non-business projects.
 
