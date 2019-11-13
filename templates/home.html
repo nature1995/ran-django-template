@@ -162,15 +162,16 @@
       </p>
       </section>
 
-     <section id="gallery">
+      <section id="gallery">
         <div class="album py-0">
             <div class="container">
               <div class="row">
-                {% for gallery in gallerys.all %}
+                {% for gallery in gallerys.all|dictsortreversed:"last_mod_time" %}
                 <div class="col-md-4">
                   <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" src="{{ gallery.image.url }}">
+                    <a href="{{ gallery.url}}"><img class="card-img-top" src="{{ gallery.image.url }}"></a>
                     <div class="card-body">
+                      <p class="card-text font-weight-bold" style="text-align: center"><a href="{{ gallery.url}}">{{gallery.title}}</a></p>
                       <p class="card-text">{{gallery.description}}</p>
                     </div>
                   </div>
