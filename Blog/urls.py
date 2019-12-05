@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 from django.conf import settings
 from apps.qrcreate.views import generate_qrcode
 from django.views.static import serve
-import Blog.views
 from apps.blog import views as ablog
 
 urlpatterns = [
@@ -43,8 +42,6 @@ urlpatterns = [
     url(r'^favicon.ico$', RedirectView.as_view(url=r'media/favicon.ico')),
     url(r'^qr/(.+)$', generate_qrcode, name='qr'),
     url(r'^qr/', home, name='qrcode'),
-    url(r'^2048/', game_2048, name='game_2048'),
-    url(r'^snake/', game_snake, name='game_snake'),
     url(r'^baidu_cloud/', baidu_cloud, name='baidu_cloud'),
     path(r'iot/', include('apps.myapp.urls')),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
@@ -52,6 +49,3 @@ urlpatterns = [
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT,) + static(settings.STATIC_URL,
                                                                             document_root=settings.STATIC_ROOT)
-
-handler404 = Blog.views.page_not_found
-handler500 = Blog.views.page_error

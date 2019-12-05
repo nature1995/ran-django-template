@@ -1,4 +1,4 @@
-from django.shortcuts import render,  render_to_response
+from django.shortcuts import render
 from apps.gallery.models import Gallery
 
 
@@ -7,24 +7,16 @@ def home(request):
     return render(request, 'home.html', {'gallerys': gallerys})
 
 
-def game_2048(request):
-    return render(request, '2048.html')
-
-
-def game_snake(request):
-    return render(request, 'snake.html')
-
-
 def baidu_cloud(request):
     return render(request, 'baidu_cloud.html')
 
 
-def page_not_found(request):
-    return render_to_response('404.html')
+def handler404(request, exception):
+    return render(request, template_name='404.html')
 
 
-def page_error(request):
-    return render_to_response('500.html')
+def handler500(request):
+    return render(request, template_name='500.html')
 
 
 

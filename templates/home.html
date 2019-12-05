@@ -1,230 +1,91 @@
-<!doctype html>
-<html lang="en">
-{% load staticfiles %}
-  <head>
+{% extends "theme.html" %}
+  {% block style %}
     <meta name="baidu-site-verification" content="MRMBZA60wg" />
     <meta name="baidu-site-verification" content="MoExjihOpR" />
-    <meta charset="utf-8">
-    <meta name="keywords" content="然小狼 | ranxiaolang.com,然小狼 |，然小狼@,ranxiaolang.com,xiaolang,ran,ziran，,@ranxiaolang.com，nature，RANXIAOLANG">
-    <meta name="description" content="然小狼 | ranxiaolang.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Ziran Gong">
-    <link rel="icon" href="{% static "favicon.ico" %}">
+  {% endblock style %}
 
-    <title>然小狼 | ranxiaolang</title>
-    <!-- core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-  </head>
-
-  <body>
-     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand animated rotateIn" href=" {% url 'main' %}">
-        <img  src="{% static "/images/logo0.png" %}"style="height: 3.8rem" />
+  {% block content %}
+  <div id="top-display" class="container-fluid p-0">
+      <div id="topDisplay" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#topDisplay" data-slide-to="0" class="active"></li>
+        <li data-target="#topDisplay" data-slide-to="1" class=""></li>
+        <li data-target="#topDisplay" data-slide-to="2" class=""></li>
+      </ol>
+      <div class="carousel-inner">
+        <a class="carousel-item active" href="">
+            <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/An5zfe.gif" alt="slide1">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse " id="navbarNavDropdown">
-          <ul class="navbar-nav justify-content-end container-fluid p-0 mt-2 mt-md-0">
-              <li class="nav-item text-right">
-                  <a class="nav-link" href="{% url 'main' %}">Home <span class="sr-only">(current)</span></a>
-              </li>
-
-              <li class="d-block d-md-none border-top border-top-1"></li>
-              <li class="nav-item dropdown text-right">
-              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Projects
-              </a>
-              <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="https://nature1995.club/Face-Recognition-System">Intelligent Facial Recognition System</a>
-                  <a class="dropdown-item" href="https://nature1995.club/Flight-Delay-Prediction">Prediction of Flight Delays</a>
-                  <a class="dropdown-item" href="https://github.com/angryducks/speech-box">AI Text and Recording keyword Extraction</a>
-                  <a class="dropdown-item" href="https://github.com/angryducks/angry-ducks">AI Speech Sentiment Text Recorder</a>
-                  <a class="dropdown-item" href="https://github.com/nature1995/weather-forecast-alert">Weather Forecast Alert</a>
-                  <a class="dropdown-item" href="https://sites.google.com/view/ziran">Intelligent Facial Recognition System (Web)</a>
-                  <a class="dropdown-item" href="https://sites.google.com/view/ee608">Prediction of Flight Delays (Web)</a>
-              </div>
-              </li>
-
-              <li class="d-block d-md-none border-top border-top-1"></li>
-              <li class="nav-item dropdown text-right">
-                  <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Resource
-                  </a>
-              <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="{% url 'baidu_cloud' %}">Baidu-Cloud</a>
-                  <a class="dropdown-item" href="{% url 'game_snake' %}">Snake</a>
-                  <a class="dropdown-item"href="{% url 'game_2048' %}">2048</a>
-              </div>
-              </li>
-
-              <li class="d-block d-md-none border-top border-top-1"></li>
-              <li class="nav-item dropdown text-right">
-              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Tools
-              </a>
-              <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="{% url 'ablog' %}">Ziran's Blog | 自然博客</a>
-                  <a class="dropdown-item" href="{% url 'rasp' %}">IOT</a>
-                  <a class="dropdown-item" href="">Software</a>
-                  <a class="dropdown-item" href="">Document</a>
-              </div>
-              </li>
-
-              <li class="d-block d-md-none border-top border-top-1"></li>
-              <li class="nav-item text-right">
-              <a class="nav-link" href="https://nature1995.club/about/">About&nbsp</a>
-              </li>
-
-              <li class="nav-item text-right">
-
-                  {% if user.is_authenticated %}
-                  <a class="btn btn-outline-dark" href="JavaScript:{document.getElementById('退出').submit()}">Logout</a>
-                  <form id= '退出' method="POST" action='{% url 'LogoutPage' %}' align='center'>
-                  {% csrf_token %}
-                  <input type="hidden">
-                  </form>
-                  {% else %}
-                  <a class="btn btn-dark" href="{% url 'LoginPage' %}">Sign in</a>&nbsp;
-                  <a class="btn btn-outline-dark" href="{% url 'SignupPage' %}">Sign up</a>
-                  {% endif %}
-              </li>
-          </ul>
-        </div>
-      </nav>
-     </header>
-
-    <div id="top-display" class="container-fluid p-0">
-        <div id="topDisplay" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#topDisplay" data-slide-to="0" class="active"></li>
-          <li data-target="#topDisplay" data-slide-to="1" class=""></li>
-          <li data-target="#topDisplay" data-slide-to="2" class=""></li>
-        </ol>
-        <div class="carousel-inner">
-          <a class="carousel-item active" href="">
-              <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/An5zfe.gif" alt="slide1">
-          </a>
-          <a class="carousel-item" href="">
-              <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/AnI9ld.png" alt="slide2">
-          </a>
-          <a class="carousel-item " href="">
-              <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/AnIpSH.png" alt="slide3">
-          </a>
-        </div>
-        <a class="carousel-control-prev" href="#topDisplay" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
+        <a class="carousel-item" href="">
+            <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/AnI9ld.png" alt="slide2">
         </a>
-        <a class="carousel-control-next" href="#topDisplay" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+        <a class="carousel-item " href="">
+            <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/AnIpSH.png" alt="slide3">
         </a>
-        </div>
-    </div>
+      </div>
+      <a class="carousel-control-prev" href="#topDisplay" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#topDisplay" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+      </a>
+      </div>
+  </div>
 
-    <main role="main">
+  <main role="main">
 
-      <section class="jumbotron text-center" style="background-image:url(https://s2.ax1x.com/2019/03/19/An57l9.jpg);background-size:cover;">
-      <canvas id="home-canvas" style="height:10px; width:100%;"></canvas>
-      <p>
-        <a href="https://github.com/nature1995" class="btn btn-danger">Github</a>
-        <a href="https://www.linkedin.com/in/ziran-gong" class="btn btn" style="background-color: #2c90ee; color: white">Linkedin</a>
-        <a href="{% url 'ablog' %}" class="btn btn-dark btn-lg">Blog</a>
-        <a href="http://www.ranxiaolang.com:8000" class="btn btn-light">Cloud Disk</a>
-      </p>
-      <p>
-        <a href="https://github.com/nature1995">
-          <span style="color: #d72e3d;">
-          <i class="fab fa-github fa-3x"></i>
-          </span>
-        </a>
-        <a href="https://www.linkedin.com/in/ziran-gong">
-        <span style="color: #2c90ee;">
-          <i class="fab fa-linkedin-in fa-3x"></i>
-          </span>
-        </a>
-        <a href="{% url 'ablog' %}">
-          <span style="color: #2e3338;">
-          <i class="fas fa-blog fa-3x"></i>
-          </span>
-        </a>
-        <a href="http://www.ranxiaolang.com:8000">
-          <span style="color: #f7f8f9;">
-          <i class="fas fa-server fa-3x"></i>
-          </span>
-        </a>
-      </p>
-      </section>
-
-      <section id="gallery">
-        <div class="album py-0">
-            <div class="container">
-              <div class="row">
-                {% for gallery in gallerys.all|dictsortreversed:"last_mod_time" %}
-                <div class="col-md-4">
-                  <div class="card mb-4 shadow-sm">
-                    <a href="{{ gallery.url}}"><img class="card-img-top" src="{{ gallery.image.url }}"></a>
-                    <div class="card-body">
-                      <p class="card-text font-weight-bold" style="text-align: center"><a href="{{ gallery.url}}">{{gallery.title}}</a></p>
-                      <p class="card-text">{{gallery.description}}</p>
-                    </div>
-                  </div>
-                </div>
-              {% endfor %}
-              </div>
-            </div>
-        </div>
-      </section>
-
-    <section id="footer_nav" class="bg-light mt-4">
-    <div class="container pt-3 pb-4">
-        <dl class="row mb-0">
-            <div class="col-sm">
-                <dt class="mb-1 mt-2">Topics</dt>
-                <dd class="mb-0">
-                    <a class="text-dark" href="http://www.ranxiaolang.com:8000">
-                        Cloud Disk</a>
-                </dd>
-             </div>
-            <div class="col-sm">
-                <dt class="mb-1 mt-2">About Me</dt>
-                <dd class="mb-0">
-                     <a class="text-dark" href="https://nature1995.club/about/">Ziran Gong&nbsp;</a>
-                </dd>
-            </div>
-            <div class="col-sm">
-                <dt class="mb-1 mt-2">Follow Us</dt>
-                <dd class="mb-0">
-                    <img style="height: 1.5rem" src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/qMUjOdv.png">
-                        <a class="text-dark" href="{% static '/images/gzr-youlang.png' %}">WeChat&nbsp;</a>
-                </dd>
-            </div>
-        </dl>
-    </div>
+    <section class="jumbotron text-center" style="background-image:url(https://s2.ax1x.com/2019/03/19/An57l9.jpg);background-size:cover;">
+    <canvas id="home-canvas" style="height:10px; width:100%;"></canvas>
+    <p>
+      <a href="https://github.com/nature1995" class="btn btn-danger">Github</a>
+      <a href="https://www.linkedin.com/in/ziran-gong" class="btn btn" style="background-color: #2c90ee; color: white">Linkedin</a>
+      <a href="{% url 'ablog' %}" class="btn btn-dark btn-lg">Blog</a>
+      <a href="http://www.ranxiaolang.com:8000" class="btn btn-light">Cloud Disk</a>
+    </p>
+    <p>
+      <a href="https://github.com/nature1995">
+        <span style="color: #d72e3d;">
+        <i class="fab fa-github fa-3x"></i>
+        </span>
+      </a>
+      <a href="https://www.linkedin.com/in/ziran-gong">
+      <span style="color: #2c90ee;">
+        <i class="fab fa-linkedin-in fa-3x"></i>
+        </span>
+      </a>
+      <a href="{% url 'ablog' %}">
+        <span style="color: #2e3338;">
+        <i class="fas fa-blog fa-3x"></i>
+        </span>
+      </a>
+      <a href="http://www.ranxiaolang.com:8000">
+        <span style="color: #f7f8f9;">
+        <i class="fas fa-server fa-3x"></i>
+        </span>
+      </a>
+    </p>
     </section>
 
-    </main>
-
-    <footer class="text-muted">
-      <div class="container">
-
-        <p align="center"> ©2018-2019&nbsp;&nbsp;然小狼&nbsp;&nbsp;|&nbsp;Ranxiaolang</p>
-        <p align="center"> <a align="center" class="text-muted" href="http://www.miitbeian.gov.cn/"> All Rights Reserved.</a>
-        </p>
+    <section id="gallery">
+      <div class="album py-0">
+          <div class="container">
+            <div class="row">
+              {% for gallery in gallerys.all|dictsortreversed:"last_mod_time" %}
+              <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                  <a href="{{ gallery.url}}"><img class="card-img-top" src="{{ gallery.image.url }}"></a>
+                  <div class="card-body">
+                    <p class="card-text font-weight-bold" style="text-align: center"><a href="{{ gallery.url}}">{{gallery.title}}</a></p>
+                    <p class="card-text">{{gallery.description}}</p>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            </div>
+          </div>
       </div>
-    </footer>
-
-<!-- core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  </body>
-</html>
+    </section>
+  </main>
+  {% endblock content %}
