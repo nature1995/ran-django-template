@@ -12,8 +12,6 @@
 [![django2.1.5](https://img.shields.io/badge/django-2.1.5-orange.svg)]()
 [![Build Status](https://travis-ci.com/nature1995/ran-django-template.svg?token=ihxd9jwdJ367UvYy3j9G&branch=master)](https://travis-ci.com/nature1995/ran-django-template)
 
-Author: Ziran Gong
-
 ## Feature
 For Site
 - [x] Create Django web server in local
@@ -73,15 +71,18 @@ Access the web page though this link: http://0.0.0.0:8000/
 
 ## Compatibility
 
-The codes are tested using Travis-CI platform with django 2.1.5 and Python 3.5, 3.6, 3.7
-
+The codes are tested using Travis-CI platform with django 2.1.5 and Python 3.5, 3.6, 3.7. 
 Django\Python  	| 3.5 | 3.6 | 3.7 
 --------------- | --- | --- | ---
 2.0.x   	|  *  |  *  |  *
 2.1.x    	|  *  |  *  |  *
-2.2.x		|  x  |  x  |  x 
+3.0.0		|  *  |  *  |  *  
 
-**Notice: Django 2.1.x need to using the following change:**
+**Notice:**
+
+1. Because the jet admin do not support django==3.0.0. Please remove jet in setting.py and urls.py, if you would like to use django == 3.0.0
+
+2. Django 2.1.x need to using the following change:**
 
 If you have the ERROR message with `render() got an unexpected keyword argument 'renderer'；`, 
 please find Python folder: `\lib\site-packages\django\forms\boundfield.py`. 
